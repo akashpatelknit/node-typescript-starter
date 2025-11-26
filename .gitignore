@@ -1,2 +1,41 @@
-node_modules
-dist
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables - IMPORTANT!
+.env.local
+.env.*.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# Keep these files (with example/default values)
+# .env
+# .env.development
+# .env.production
+# .env.test
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+
+# Temp files
+tmp/
+temp/

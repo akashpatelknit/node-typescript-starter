@@ -5,17 +5,25 @@
   "type": "module",
   "scripts": {
     "dist": "npx tsc",
-    "dev": "nodemon src/server.ts",
-    "start": "node dist/server.js",
-    "prepare": "husky",
+    "dev": "nodemon",
+    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "start:dev": "cross-env NODE_ENV=development node dist/server.js",
+    "start:test": "cross-env NODE_ENV=test node dist/server.js",
+    "build": "npm run dist",
+    "build:start": "npm run build && npm start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
+    "clean": "rm -rf dist logs/*.log"
   },
   "author": "",
   "license": "ISC",
   "lint-staged": {
     "*.ts": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ]
   },
   "description": "",
@@ -23,13 +31,31 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.39.1",
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
     "@types/node": "^24.10.1",
+    "@types/winston": "^2.4.4",
     "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "nodemon": "^3.1.11",
+    "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.0"
+  },
+  "dependencies": {
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
+    "dotenv-flow": "^4.1.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "winston": "^3.18.3"
   }
 }
