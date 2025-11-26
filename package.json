@@ -2,23 +2,34 @@
   "name": "nodejs-typescript-starter",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "dist": "npx tsc",
     "dev": "nodemon src/server.ts",
     "start": "node dist/server.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ]
+  },
   "description": "",
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0"
   }
 }
